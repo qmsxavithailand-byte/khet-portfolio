@@ -40,7 +40,7 @@ const projects = [
 
 const auditTypes = ["IATF 16949", "ISO 9001", "ISO 14001", "ISO 45001", "UL", "ETL", "MET", "Customer"];
 const isoStandards = ["IATF 16949:2016", "ISO 9001:2015", "ISO 14001:2015", "ISO 45001:2018"];
-const systemsBuilt = ["KPI Dashboard", "ESD Control System", "IATF Closed-Loop ⚙️"];
+const systemsBuilt = ["KPI Dashboard", "ESD Control System", "IATF Closed-Loop"];
 
 const certs = [
   { label: "IATF 16949:2016 — Automotive QMS", file: "/CERTIFICATE/IATF16949 Certificate.pdf", icon: "🏆" },
@@ -400,11 +400,17 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-[#1e2d4a] py-8 text-center text-xs text-[#334155]">
-        <a href="https://phatcharaphon.vercel.app" className="text-[#00d4aa] hover:underline" target="_blank">
+      <footer className="border-t border-[#1e2d4a] py-10 text-center">
+        <p className="mb-1 text-sm font-semibold text-[#94a3b8]">
+          Open to QMS / IATF 16949 roles in automotive manufacturing
+        </p>
+        <a
+          href="https://phatcharaphon.vercel.app"
+          className="text-xs text-[#334155] hover:text-[#00d4aa] transition-colors"
+          target="_blank"
+        >
           phatcharaphon.vercel.app
         </a>
-        {" · "}Built with Next.js &amp; Tailwind CSS
       </footer>
     </>
   );
