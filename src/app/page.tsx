@@ -48,7 +48,7 @@ const certs = [
   { label: "ISO 14001 & 45001 — Environmental & OH&S", file: "/CERTIFICATE/Cer. ISO14001 and 45001.pdf", icon: "🌿" },
   { label: "APQP / PPAP / FMEA — Core Tools", file: "/CERTIFICATE/FMEA APQP PPAP.pdf", icon: "⚙️" },
   { label: "TOEIC Score Certificate", file: "/CERTIFICATE/TOEIC score.pdf", icon: "🌐" },
-  { label: "จป. วิชาชีพ — Safety Officer", file: "/CERTIFICATE/จป.pdf", icon: "🦺" },
+  { label: "Safety Officer Certificate (จป.วิชาชีพ)", file: "/CERTIFICATE/จป.pdf", icon: "🦺" },
 ];
 
 export default function Home() {
@@ -228,31 +228,31 @@ export default function Home() {
               <div className="rounded-lg bg-[#111827] border border-[#1e2d4a] px-4 py-2 text-center">
                 <div className="text-xs text-[#64748b]">Paper/sheet</div>
                 <div className="text-base font-bold text-[#f1f5f9]">฿0.238</div>
-                <div className="text-[10px] text-[#475569]">595÷2,500 แผ่น</div>
+                <div className="text-[10px] text-[#475569]">595 ÷ 2,500 sheets</div>
               </div>
               <span className="text-[#334155] font-bold text-lg">+</span>
               <div className="rounded-lg bg-[#111827] border border-[#1e2d4a] px-4 py-2 text-center">
                 <div className="text-xs text-[#64748b]">Print B&W/sheet</div>
                 <div className="text-base font-bold text-[#f1f5f9]">฿0.25</div>
-                <div className="text-[10px] text-[#475569]">ราคาพิมพ์ขาวดำ</div>
+                <div className="text-[10px] text-[#475569]">B&W print rate</div>
               </div>
               <span className="text-[#334155] font-bold text-lg">=</span>
               <div className="rounded-lg border border-[rgba(0,212,170,0.3)] bg-[rgba(0,212,170,0.06)] px-4 py-2 text-center">
-                <div className="text-xs text-[#00d4aa]">รวม/แผ่น</div>
+                <div className="text-xs text-[#00d4aa]">Total / sheet</div>
                 <div className="text-base font-bold text-[#00d4aa]">฿0.488</div>
-                <div className="text-[10px] text-[#475569]">ต่อ 1 แผ่น</div>
+                <div className="text-[10px] text-[#475569]">per sheet</div>
               </div>
               <span className="text-[#334155] font-bold text-lg">×</span>
               <div className="rounded-lg bg-[#111827] border border-[#1e2d4a] px-4 py-2 text-center">
-                <div className="text-xs text-[#64748b]">25,000 แผ่น/เดือน</div>
-                <div className="text-base font-bold text-[#f1f5f9]">10 ลัง</div>
-                <div className="text-[10px] text-[#475569]">= 2,500×10</div>
+                <div className="text-xs text-[#64748b]">25,000 sheets/month</div>
+                <div className="text-base font-bold text-[#f1f5f9]">10 cases</div>
+                <div className="text-[10px] text-[#475569]">= 2,500 × 10</div>
               </div>
               <span className="text-[#334155] font-bold text-lg">=</span>
               <div className="rounded-lg border border-[rgba(239,68,68,0.3)] bg-[rgba(239,68,68,0.06)] px-4 py-2 text-center">
-                <div className="text-xs text-[#ef4444]">ค่าใช้จ่าย/เดือน</div>
+                <div className="text-xs text-[#ef4444]">Monthly cost</div>
                 <div className="text-base font-bold text-[#ef4444]">฿12,200</div>
-                <div className="text-[10px] text-[#475569]">กระดาษ+พิมพ์</div>
+                <div className="text-[10px] text-[#475569]">Paper + Print</div>
               </div>
             </div>
           </div>
@@ -269,16 +269,16 @@ export default function Home() {
               </div>
               <div className="flex items-center gap-6">
                 <div className="text-center">
-                  <div className="text-xs text-[#64748b]">ค่าใช้จ่าย/ปี</div>
+                  <div className="text-xs text-[#64748b]">Annual cost</div>
                   <div className="text-base font-bold text-[#6366f1]">฿10,000</div>
                 </div>
                 <span className="text-[#334155] text-lg font-bold">vs</span>
                 <div className="text-center">
-                  <div className="text-xs text-[#64748b]">ประหยัดได้/ปี</div>
+                  <div className="text-xs text-[#64748b]">Savings/year</div>
                   <div className="text-base font-bold text-[#00d4aa]">฿102,480</div>
                 </div>
                 <div className="rounded-lg border border-[rgba(245,158,11,0.4)] bg-[rgba(245,158,11,0.08)] px-4 py-2 text-center">
-                  <div className="text-[10px] text-[#f59e0b]">ROI ปีแรก</div>
+                  <div className="text-[10px] text-[#f59e0b]">Year 1 ROI</div>
                   <div className="text-lg font-extrabold text-[#f59e0b]">924%</div>
                   <div className="text-[10px] text-[#475569]">92,480 ÷ 10,000</div>
                 </div>
@@ -289,11 +289,11 @@ export default function Home() {
           {/* Stats grid */}
           <div className="mb-6 grid grid-cols-5 gap-3">
             {[
-              { label: "ค่าใช้จ่าย/เดือน", val: "฿12,200", sub: "ก่อนเปลี่ยนระบบ", color: "#ef4444" },
-              { label: "ลด 70%/เดือน", val: "฿8,540", sub: "12,200 × 70%", color: "#00d4aa" },
-              { label: "Net savings/ปี", val: "฿92,480", sub: "102,480 − 10,000 GWS", color: "#00d4aa" },
-              { label: "GWS 5 ปี", val: "฿50,000", sub: "10,000 × 5 ปี", color: "#6366f1" },
-              { label: "Net savings 5 ปี", val: "฿462,400", sub: "512,400 − 50,000", color: "#f59e0b" },
+              { label: "Monthly cost",      val: "฿12,200",  sub: "Before digitization",   color: "#ef4444" },
+              { label: "Saved 70%/month",   val: "฿8,540",   sub: "12,200 × 70%",          color: "#00d4aa" },
+              { label: "Net savings/year",  val: "฿92,480",  sub: "102,480 − 10,000 GWS",  color: "#00d4aa" },
+              { label: "GWS 5-year cost",   val: "฿50,000",  sub: "฿10,000 × 5 yrs",       color: "#6366f1" },
+              { label: "Net savings 5 yrs", val: "฿462,400", sub: "512,400 − 50,000",       color: "#f59e0b" },
             ].map((s) => (
               <div key={s.label} className="rounded-xl border border-[#1e2d4a] bg-[#0d1520] px-3 py-4 text-center">
                 <div className="text-[10px] text-[#64748b] mb-1">{s.label}</div>
@@ -305,15 +305,15 @@ export default function Home() {
 
           {/* 5-year bar chart */}
           <div className="rounded-xl border border-[#1e2d4a] bg-[#0d1520] px-6 py-5">
-            <div className="mb-1 text-[10px] uppercase tracking-widest text-[#64748b]">Net Cumulative Savings — 5-Year Projection (หักค่า GWS แล้ว)</div>
-            <div className="mb-4 text-[10px] text-[#334155]">Net = ประหยัด 70% − GWS ฿10,000/ปี</div>
+            <div className="mb-1 text-[10px] uppercase tracking-widest text-[#64748b]">Net Cumulative Savings — 5-Year Projection (after GWS cost)</div>
+            <div className="mb-4 text-[10px] text-[#334155]">Net = 70% paper savings − GWS ฿10,000/yr</div>
             <div className="flex items-end gap-3 h-28">
               {[
-                { year: "ปีที่ 1", net: 92480, cum: 92480, pct: 20 },
-                { year: "ปีที่ 2", net: 92480, cum: 184960, pct: 40 },
-                { year: "ปีที่ 3", net: 92480, cum: 277440, pct: 60 },
-                { year: "ปีที่ 4", net: 92480, cum: 369920, pct: 80 },
-                { year: "ปีที่ 5", net: 92480, cum: 462400, pct: 100 },
+                { year: "Year 1", net: 92480, cum: 92480,  pct: 20  },
+                { year: "Year 2", net: 92480, cum: 184960, pct: 40  },
+                { year: "Year 3", net: 92480, cum: 277440, pct: 60  },
+                { year: "Year 4", net: 92480, cum: 369920, pct: 80  },
+                { year: "Year 5", net: 92480, cum: 462400, pct: 100 },
               ].map((b) => (
                 <div key={b.year} className="flex flex-col items-center gap-1 flex-1">
                   <div className="text-[10px] font-bold" style={{ color: b.pct === 100 ? "#f59e0b" : "#00d4aa" }}>
@@ -333,8 +333,8 @@ export default function Home() {
               ))}
             </div>
             <div className="mt-3 flex items-center justify-between text-[10px] border-t border-[#1e2d4a] pt-3">
-              <span className="text-[#334155]">ลงทุน GWS ฿10,000/ปี · ROI 924% ปีแรก</span>
-              <span className="text-[#f59e0b] font-bold">Net 5 ปี = ฿462,400</span>
+              <span className="text-[#334155]">GWS investment ฿10,000/yr · Year 1 ROI 924%</span>
+              <span className="text-[#f59e0b] font-bold">Net 5 yrs = ฿462,400</span>
             </div>
           </div>
         </div>
