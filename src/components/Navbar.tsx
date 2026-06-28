@@ -29,8 +29,8 @@ export default function Navbar() {
         )}
 
         <a
-          href="/Phatcharaphon_Resume_2024.pdf"
-          target="_blank"
+          href="/Resume_Phatcharaphon.pdf"
+          download="Resume_Phatcharaphon.pdf"
           className="rounded-md bg-[#00d4aa] px-4 py-2 text-xs font-bold text-[#0a0f1e] hover:bg-[#00bfa6] transition-colors"
         >
           Download Resume
