@@ -1,11 +1,13 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import { BarChart3, ShieldCheck, GitMerge } from "lucide-react";
 
 const projects = [
   {
     slug: "kpi",
-    icon: "📊",
-    iconBg: "rgba(0,212,170,0.1)",
+    Icon: BarChart3,
+    iconColor: "#00d4aa",
+    iconBg: "linear-gradient(135deg, rgba(0,212,170,0.18), rgba(14,165,233,0.1))",
     title: "KPI Dashboard System",
     desc: "Multi-role KPI management — Preparer submits, Manager approves, QMR monitors via matrix view, real-time Chart.js dashboard.",
     tags: ["Chart.js", "KPI", "ISO 9001", "Multi-role"],
@@ -14,8 +16,9 @@ const projects = [
   },
   {
     slug: "esd",
-    icon: "🛡️",
-    iconBg: "rgba(99,102,241,0.15)",
+    Icon: ShieldCheck,
+    iconColor: "#818cf8",
+    iconBg: "linear-gradient(135deg, rgba(99,102,241,0.2), rgba(168,85,247,0.1))",
     title: "ESD Control System",
     desc: "Digital IPQA reporting — replaces 100% paper-based ESD inspection forms with approval workflow, email notifications, and full audit trail.",
     tags: ["Google Apps Script", "IPQA", "ESD Control", "RBAC"],
@@ -24,8 +27,9 @@ const projects = [
   },
   {
     slug: "iatf",
-    icon: "🔄",
-    iconBg: "rgba(245,158,11,0.1)",
+    Icon: GitMerge,
+    iconColor: "#f59e0b",
+    iconBg: "linear-gradient(135deg, rgba(245,158,11,0.18), rgba(239,68,68,0.08))",
     title: "IATF 16949 Closed-Loop System",
     desc: "Automated APQP → PPAP → PFMEA → Control Plan → MSA → SPC pipeline with deadline reminders and audit-ready reporting.",
     tags: ["APQP", "PPAP", "FMEA", "SPC", "Next.js"],
@@ -190,10 +194,10 @@ export default function Home() {
                 {p.status}
               </div>
               <div
-                className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl text-xl"
-                style={{ background: p.iconBg }}
+                className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl"
+                style={{ background: p.iconBg, boxShadow: `0 0 18px ${p.iconColor}30` }}
               >
-                {p.icon}
+                <p.Icon size={22} color={p.iconColor} strokeWidth={1.75} />
               </div>
               <h3 className="mb-2 text-sm font-bold text-[#f1f5f9]">{p.title}</h3>
               <p className="mb-4 text-xs text-[#64748b] leading-relaxed">{p.desc}</p>
