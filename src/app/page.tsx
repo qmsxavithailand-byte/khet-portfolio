@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 
 const projects = [
   {
-    slug: "esd",
+    slug: "kpi",
     icon: "📊",
     iconBg: "rgba(0,212,170,0.1)",
     title: "KPI Dashboard System",
@@ -23,7 +23,7 @@ const projects = [
     statusColor: "text-[#00d4aa] bg-[rgba(0,212,170,0.1)] border-[rgba(0,212,170,0.25)]",
   },
   {
-    slug: "esd",
+    slug: "iatf",
     icon: "🔄",
     iconBg: "rgba(245,158,11,0.1)",
     title: "IATF 16949 Closed-Loop System",
@@ -39,12 +39,12 @@ const isoStandards = ["IATF 16949:2016", "ISO 9001:2015", "ISO 14001:2015", "ISO
 const systemsBuilt = ["KPI Dashboard", "ESD Control System", "IATF Closed-Loop ⚙️"];
 
 const certs = [
-  "ISO 9001:2015 — Quality Management System",
-  "ISO 14001:2015 — Environmental Management",
-  "ISO 45001:2018 — OH&S Management",
-  "IATF 16949:2016 — Automotive QMS",
-  "Internal Auditor — Multi-standard",
-  "APQP / PPAP / FMEA / SPC / MSA",
+  { label: "IATF 16949:2016 — Automotive QMS", file: "/CERTIFICATE/IATF16949 Certificate.pdf", icon: "🏆" },
+  { label: "ISO 9001:2015 — Quality Management System", file: "/CERTIFICATE/ISO9001.pdf", icon: "📋" },
+  { label: "ISO 14001 & 45001 — Environmental & OH&S", file: "/CERTIFICATE/Cer. ISO14001 and 45001.pdf", icon: "🌿" },
+  { label: "APQP / PPAP / FMEA — Core Tools", file: "/CERTIFICATE/FMEA APQP PPAP.pdf", icon: "⚙️" },
+  { label: "TOEIC Score Certificate", file: "/CERTIFICATE/TOEIC score.pdf", icon: "🌐" },
+  { label: "จป. วิชาชีพ — Safety Officer", file: "/CERTIFICATE/จป.pdf", icon: "🦺" },
 ];
 
 export default function Home() {
@@ -93,11 +93,20 @@ export default function Home() {
         <div className="relative z-10 mt-6 grid grid-cols-4 gap-3 w-full max-w-5xl">
           {/* Years */}
           <div
-            className="flex flex-col items-center rounded-xl px-8 py-4 text-center"
+            className="rounded-xl px-6 py-4"
             style={{ background: "rgba(6,9,26,0.65)", backdropFilter: "blur(8px)", border: "1px solid rgba(0,212,170,0.15)" }}
           >
-            <div className="text-3xl font-extrabold text-[#00d4aa]" style={{ textShadow: "0 0 20px rgba(0,212,170,0.5)" }}>5+</div>
-            <div className="mt-1 text-xs text-[#94a3b8]">Years QMS Experience</div>
+            <div className="text-center mb-3">
+              <div className="text-3xl font-extrabold text-[#00d4aa]" style={{ textShadow: "0 0 20px rgba(0,212,170,0.5)" }}>5+</div>
+              <div className="mt-1 text-xs text-[#94a3b8]">Years QMS Experience</div>
+            </div>
+            <div className="flex flex-wrap gap-1.5 justify-center border-t border-[#1e2d4a] pt-3">
+              {["QMS Engineer", "Lead Auditor", "Document Control", "QMR"].map((t) => (
+                <span key={t} className="rounded-full bg-[rgba(0,212,170,0.08)] border border-[rgba(0,212,170,0.2)] px-2 py-0.5 text-[10px] text-[#00d4aa]">
+                  {t}
+                </span>
+              ))}
+            </div>
           </div>
 
           {/* ISO Standards */}
@@ -144,7 +153,7 @@ export default function Home() {
             <div className="flex gap-6 mb-3">
               <div className="text-center">
                 <div className="text-3xl font-extrabold text-[#00d4aa]" style={{ textShadow: "0 0 20px rgba(0,212,170,0.5)" }}>100+</div>
-                <div className="mt-1 text-xs text-[#94a3b8]">Audits Led</div>
+                <div className="mt-1 text-xs text-[#94a3b8]">Audits Conducted</div>
               </div>
               <div className="w-px bg-[#1e2d4a]" />
               <div className="text-center">
@@ -270,13 +279,19 @@ export default function Home() {
             </div>
             <div className="flex flex-col gap-2.5">
               {certs.map((c) => (
-                <div
-                  key={c}
-                  className="flex items-center gap-3 rounded-lg border border-[#1e2d4a] bg-[#111827] px-4 py-3"
+                <a
+                  key={c.label}
+                  href={c.file}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 rounded-lg border border-[#1e2d4a] bg-[#111827] px-4 py-3 hover:border-[#00d4aa] hover:bg-[#0d1520] transition-colors group"
                 >
-                  <div className="h-2 w-2 rounded-full bg-[#00d4aa] flex-shrink-0" />
-                  <span className="text-xs text-[#94a3b8]">{c}</span>
-                </div>
+                  <span className="text-base flex-shrink-0">{c.icon}</span>
+                  <span className="text-xs text-[#94a3b8] group-hover:text-[#00d4aa] transition-colors flex-1">{c.label}</span>
+                  <svg className="w-3.5 h-3.5 text-[#334155] group-hover:text-[#00d4aa] flex-shrink-0 transition-colors" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
               ))}
             </div>
           </div>
