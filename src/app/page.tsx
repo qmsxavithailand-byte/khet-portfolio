@@ -9,8 +9,8 @@ const projects = [
     title: "KPI Dashboard System",
     desc: "Multi-role KPI management — Preparer submits, Manager approves, QMR monitors via matrix view, real-time Chart.js dashboard.",
     tags: ["Chart.js", "KPI", "ISO 9001", "Multi-role"],
-    status: "Live",
-    statusColor: "text-[#00d4aa] bg-[rgba(0,212,170,0.1)] border-[rgba(0,212,170,0.25)]",
+    status: "Production Ready",
+    statusColor: "text-[#0ea5e9] bg-[rgba(14,165,233,0.1)] border-[rgba(14,165,233,0.25)]",
   },
   {
     slug: "esd",
@@ -19,8 +19,8 @@ const projects = [
     title: "ESD Control System",
     desc: "Digital IPQA reporting — replaces 100% paper-based ESD inspection forms with approval workflow, email notifications, and full audit trail.",
     tags: ["Google Apps Script", "IPQA", "ESD Control", "RBAC"],
-    status: "Live",
-    statusColor: "text-[#00d4aa] bg-[rgba(0,212,170,0.1)] border-[rgba(0,212,170,0.25)]",
+    status: "Production Ready",
+    statusColor: "text-[#0ea5e9] bg-[rgba(14,165,233,0.1)] border-[rgba(14,165,233,0.25)]",
   },
   {
     slug: "iatf",
@@ -208,47 +208,129 @@ export default function Home() {
             </Link>
           ))}
         </div>
+      </section>
 
-        {/* KAIZEN */}
-        <div
-          id="kaizen"
-          className="mt-8 rounded-2xl border border-[rgba(0,212,170,0.25)] p-10"
-          style={{ background: "linear-gradient(135deg,#111827 0%,#0d1f2d 100%)" }}
-        >
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 items-center">
-            <div>
-              <div className="mb-2 text-[10px] uppercase tracking-widest text-[#00d4aa]">
-                // Kaizen Initiative
+      {/* KAIZEN */}
+      <section id="kaizen" className="border-t border-[#1e2d4a] py-24" style={{ background: "rgba(6,9,26,0.7)" }}>
+        <div className="mx-auto max-w-5xl px-8">
+          <div className="mb-3 text-[10px] uppercase tracking-widest text-[#00d4aa]">// Kaizen Initiative</div>
+          <h2 className="mb-2 text-2xl font-bold text-[#f1f5f9]">Paperless QMS — Cost Reduction</h2>
+          <p className="mb-10 text-xs text-[#475569]">Replaced paper-based QMS inspection forms with digital records. Eliminated printing & procurement costs entirely.</p>
+
+          {/* Cost formula row */}
+          <div className="mb-6 rounded-xl border border-[#1e2d4a] bg-[#0d1520] px-6 py-5">
+            <div className="mb-3 text-[10px] uppercase tracking-widest text-[#64748b]">Cost per Sheet (Before)</div>
+            <div className="flex flex-wrap items-center gap-3 text-sm">
+              <div className="rounded-lg bg-[#111827] border border-[#1e2d4a] px-4 py-2 text-center">
+                <div className="text-xs text-[#64748b]">Paper/sheet</div>
+                <div className="text-base font-bold text-[#f1f5f9]">฿0.238</div>
+                <div className="text-[10px] text-[#475569]">595÷2,500 แผ่น</div>
               </div>
-              <div className="text-5xl font-extrabold text-[#00d4aa]">฿ 70%+</div>
-              <div className="mt-1 text-xs text-[#64748b]">Cost Reduction — Paperless QMS Records</div>
-              <div className="mt-6 flex gap-8">
-                {[
-                  { val: "0.25฿", key: "Per sheet (print)" },
-                  { val: "595฿", key: "Per box (paper)" },
-                  { val: "0", key: "Paper after digital" },
-                ].map((m) => (
-                  <div key={m.key}>
-                    <div className="text-lg font-bold text-[#f1f5f9]">{m.val}</div>
-                    <div className="text-[10px] text-[#475569] mt-0.5">{m.key}</div>
-                  </div>
-                ))}
+              <span className="text-[#334155] font-bold text-lg">+</span>
+              <div className="rounded-lg bg-[#111827] border border-[#1e2d4a] px-4 py-2 text-center">
+                <div className="text-xs text-[#64748b]">Print B&W/sheet</div>
+                <div className="text-base font-bold text-[#f1f5f9]">฿0.25</div>
+                <div className="text-[10px] text-[#475569]">ราคาพิมพ์ขาวดำ</div>
               </div>
-              <div className="mt-5 h-2 rounded-full bg-[#1e2d4a] overflow-hidden">
-                <div
-                  className="h-full w-[70%] rounded-full"
-                  style={{ background: "linear-gradient(90deg,#00d4aa,#0ea5e9)" }}
-                />
+              <span className="text-[#334155] font-bold text-lg">=</span>
+              <div className="rounded-lg border border-[rgba(0,212,170,0.3)] bg-[rgba(0,212,170,0.06)] px-4 py-2 text-center">
+                <div className="text-xs text-[#00d4aa]">รวม/แผ่น</div>
+                <div className="text-base font-bold text-[#00d4aa]">฿0.488</div>
+                <div className="text-[10px] text-[#475569]">ต่อ 1 แผ่น</div>
+              </div>
+              <span className="text-[#334155] font-bold text-lg">×</span>
+              <div className="rounded-lg bg-[#111827] border border-[#1e2d4a] px-4 py-2 text-center">
+                <div className="text-xs text-[#64748b]">25,000 แผ่น/เดือน</div>
+                <div className="text-base font-bold text-[#f1f5f9]">10 ลัง</div>
+                <div className="text-[10px] text-[#475569]">= 2,500×10</div>
+              </div>
+              <span className="text-[#334155] font-bold text-lg">=</span>
+              <div className="rounded-lg border border-[rgba(239,68,68,0.3)] bg-[rgba(239,68,68,0.06)] px-4 py-2 text-center">
+                <div className="text-xs text-[#ef4444]">ค่าใช้จ่าย/เดือน</div>
+                <div className="text-base font-bold text-[#ef4444]">฿12,200</div>
+                <div className="text-[10px] text-[#475569]">กระดาษ+พิมพ์</div>
               </div>
             </div>
-            <div>
-              <h3 className="mb-3 text-lg font-bold text-[#f1f5f9]">Paperless Quality Records</h3>
-              <p className="text-sm text-[#64748b] leading-relaxed">
-                Replaced paper-based QMS inspection forms and audit checklists with electronic recording
-                system. Eliminated printing costs (฿0.25/sheet) and paper procurement (฿595/box),
-                improving document retrieval speed and audit readiness. Storage space freed for
-                production use.
-              </p>
+          </div>
+
+          {/* GWS Investment row */}
+          <div className="mb-6 rounded-xl border border-[rgba(99,102,241,0.3)] bg-[rgba(99,102,241,0.04)] px-6 py-4">
+            <div className="flex items-center justify-between flex-wrap gap-4">
+              <div className="flex items-center gap-3">
+                <span className="text-xl">☁️</span>
+                <div>
+                  <div className="text-xs font-semibold text-[#6366f1]">Google Workspace Business Plus</div>
+                  <div className="text-[10px] text-[#475569]">Phase 1 — QMS digital records (central users)</div>
+                </div>
+              </div>
+              <div className="flex items-center gap-6">
+                <div className="text-center">
+                  <div className="text-xs text-[#64748b]">ค่าใช้จ่าย/ปี</div>
+                  <div className="text-base font-bold text-[#6366f1]">฿10,000</div>
+                </div>
+                <span className="text-[#334155] text-lg font-bold">vs</span>
+                <div className="text-center">
+                  <div className="text-xs text-[#64748b]">ประหยัดได้/ปี</div>
+                  <div className="text-base font-bold text-[#00d4aa]">฿102,480</div>
+                </div>
+                <div className="rounded-lg border border-[rgba(245,158,11,0.4)] bg-[rgba(245,158,11,0.08)] px-4 py-2 text-center">
+                  <div className="text-[10px] text-[#f59e0b]">ROI ปีแรก</div>
+                  <div className="text-lg font-extrabold text-[#f59e0b]">924%</div>
+                  <div className="text-[10px] text-[#475569]">92,480 ÷ 10,000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Stats grid */}
+          <div className="mb-6 grid grid-cols-5 gap-3">
+            {[
+              { label: "ค่าใช้จ่าย/เดือน", val: "฿12,200", sub: "ก่อนเปลี่ยนระบบ", color: "#ef4444" },
+              { label: "ลด 70%/เดือน", val: "฿8,540", sub: "12,200 × 70%", color: "#00d4aa" },
+              { label: "Net savings/ปี", val: "฿92,480", sub: "102,480 − 10,000 GWS", color: "#00d4aa" },
+              { label: "GWS 5 ปี", val: "฿50,000", sub: "10,000 × 5 ปี", color: "#6366f1" },
+              { label: "Net savings 5 ปี", val: "฿462,400", sub: "512,400 − 50,000", color: "#f59e0b" },
+            ].map((s) => (
+              <div key={s.label} className="rounded-xl border border-[#1e2d4a] bg-[#0d1520] px-3 py-4 text-center">
+                <div className="text-[10px] text-[#64748b] mb-1">{s.label}</div>
+                <div className="text-lg font-extrabold" style={{ color: s.color }}>{s.val}</div>
+                <div className="text-[10px] text-[#334155] mt-1">{s.sub}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* 5-year bar chart */}
+          <div className="rounded-xl border border-[#1e2d4a] bg-[#0d1520] px-6 py-5">
+            <div className="mb-1 text-[10px] uppercase tracking-widest text-[#64748b]">Net Cumulative Savings — 5-Year Projection (หักค่า GWS แล้ว)</div>
+            <div className="mb-4 text-[10px] text-[#334155]">Net = ประหยัด 70% − GWS ฿10,000/ปี</div>
+            <div className="flex items-end gap-3 h-28">
+              {[
+                { year: "ปีที่ 1", net: 92480, cum: 92480, pct: 20 },
+                { year: "ปีที่ 2", net: 92480, cum: 184960, pct: 40 },
+                { year: "ปีที่ 3", net: 92480, cum: 277440, pct: 60 },
+                { year: "ปีที่ 4", net: 92480, cum: 369920, pct: 80 },
+                { year: "ปีที่ 5", net: 92480, cum: 462400, pct: 100 },
+              ].map((b) => (
+                <div key={b.year} className="flex flex-col items-center gap-1 flex-1">
+                  <div className="text-[10px] font-bold" style={{ color: b.pct === 100 ? "#f59e0b" : "#00d4aa" }}>
+                    ฿{(b.cum/1000).toFixed(0)}K
+                  </div>
+                  <div
+                    className="w-full rounded-t-md"
+                    style={{
+                      height: `${b.pct * 0.8}px`,
+                      background: b.pct === 100
+                        ? "linear-gradient(180deg,#f59e0b,#d97706)"
+                        : "linear-gradient(180deg,#00d4aa,#0ea5e9)",
+                    }}
+                  />
+                  <div className="text-[10px] text-[#475569]">{b.year}</div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-3 flex items-center justify-between text-[10px] border-t border-[#1e2d4a] pt-3">
+              <span className="text-[#334155]">ลงทุน GWS ฿10,000/ปี · ROI 924% ปีแรก</span>
+              <span className="text-[#f59e0b] font-bold">Net 5 ปี = ฿462,400</span>
             </div>
           </div>
         </div>

@@ -37,9 +37,9 @@ export default function ESDPage() {
       <section className="relative overflow-hidden px-8 pt-16 pb-10" style={{ background: "transparent" }}>
         <div className="mx-auto max-w-5xl">
           <div className="mb-8">
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[rgba(0,212,170,0.3)] bg-[rgba(0,212,170,0.08)] px-3 py-1 text-[11px] text-[#00d4aa]">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[rgba(14,165,233,0.3)] bg-[rgba(14,165,233,0.08)] px-3 py-1 text-[11px] text-[#0ea5e9]">
               <span className="live-dot h-2 w-2 rounded-full bg-[#00d4aa] inline-block" />
-              Live — Production
+              Production Ready
             </div>
             <h1 className="mb-3 text-4xl font-extrabold text-white leading-tight">ESD Control System</h1>
             <p className="mb-4 text-sm text-[#64748b] leading-relaxed max-w-xl">

@@ -100,9 +100,9 @@ export default function ScreenshotCarousel({ images, browserLabel }: Props) {
 
         {/* Pause indicator */}
         {paused && valid.length > 1 && (
-          <div className="absolute top-3 right-3 flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] text-white"
+          <div className="absolute top-3 right-3 rounded-full px-2 py-1 text-[12px] text-white"
             style={{ background: "rgba(0,0,0,0.5)", backdropFilter: "blur(4px)" }}>
-            <span>⏸</span> หยุดชั่วคราว
+            ⏸
           </div>
         )}
 
