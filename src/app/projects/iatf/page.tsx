@@ -1,22 +1,126 @@
 "use client";
 import Navbar from "@/components/Navbar";
+import IATFClosedLoopGraph from "@/components/IATFClosedLoopGraph";
 
-const pipeline = [
-  { icon: "📐", label: "APQP", sub: "Advanced Product Quality Planning", color: "rgba(99,102,241,0.15)", border: "#6366f1" },
-  { icon: "📄", label: "PPAP", sub: "Production Part Approval Process", color: "rgba(14,165,233,0.1)", border: "#0ea5e9" },
-  { icon: "⚠️", label: "PFMEA", sub: "Process Failure Mode & Effects Analysis", color: "rgba(245,158,11,0.1)", border: "#f59e0b" },
-  { icon: "📋", label: "Control Plan", sub: "Process Control & Monitoring", color: "rgba(0,212,170,0.1)", border: "#00d4aa" },
-  { icon: "📏", label: "MSA", sub: "Measurement System Analysis", color: "rgba(168,85,247,0.1)", border: "#a855f7" },
-  { icon: "📈", label: "SPC", sub: "Statistical Process Control", color: "rgba(34,197,94,0.1)", border: "#22c55e" },
+const kpis = [
+  { value: "≥ 95%",  label: "PPAP First-Pass Target",  color: "#00d4aa" },
+  { value: "≥ 1.67", label: "Cpk Critical Chars.",     color: "#22c55e" },
+  { value: "≤ 30d",  label: "8D Closure Target",       color: "#f59e0b" },
+  { value: "18",     label: "PPAP Elements Tracked",   color: "#6366f1" },
 ];
 
-const planned = [
-  { icon: "🔔", title: "Deadline Reminders", desc: "Auto-email reminders for APQP milestone deadlines and PPAP submission due dates." },
-  { icon: "🔗", title: "Closed-Loop Traceability", desc: "Full traceability from APQP plan → PFMEA risk → Control Plan action → SPC monitoring." },
-  { icon: "📊", title: "Audit-Ready Reports", desc: "Auto-generated IATF 16949 core tool reports ready for customer and third-party audits." },
-  { icon: "✅", title: "Approval Workflow", desc: "Multi-level approval chain for PPAP submissions with status tracking per element." },
-  { icon: "📉", title: "Cpk / GR&R Dashboard", desc: "Real-time SPC charts with Cpk, Ppk, and GR&R results — colour-coded by acceptance criteria." },
-  { icon: "🗂️", title: "Document Version Control", desc: "Control Plan and PFMEA version history with change tracking and revision log." },
+const apqpPhases = [
+  {
+    phase: "Phase 1",
+    name: "Plan & Define",
+    color: "#6366f1",
+    icon: "🗺️",
+    deliverables: [
+      "CSR Analysis & Feasibility",
+      "Design Goals & Quality Targets",
+      "Quality Program Plan",
+      "APQP Team & Responsibilities",
+      "Customer Input Requirements",
+    ],
+  },
+  {
+    phase: "Phase 2",
+    name: "Product Design & Dev",
+    color: "#818cf8",
+    icon: "🔧",
+    deliverables: [
+      "DFMEA (Design FMEA)",
+      "Design Verification Plan (DVP)",
+      "Material & Tolerance Specs",
+      "Prototype Build & Test",
+      "Engineering Change Control",
+    ],
+  },
+  {
+    phase: "Phase 3",
+    name: "Process Design & Dev",
+    color: "#f59e0b",
+    icon: "⚙️",
+    deliverables: [
+      "Process Flow Diagram",
+      "PFMEA (Process FMEA)",
+      "Pre-launch Control Plan",
+      "MSA Study Plan",
+      "Process Instructions (OI/WI)",
+    ],
+  },
+  {
+    phase: "Phase 4",
+    name: "Validation",
+    color: "#22c55e",
+    icon: "📐",
+    deliverables: [
+      "Production Trial Run",
+      "MSA / GR&R Study (≤ 30%)",
+      "Initial Cpk Study (≥ 1.33)",
+      "Production Control Plan",
+      "PPAP Level 3 Submission",
+    ],
+  },
+  {
+    phase: "PPAP Gate",
+    name: "Customer Approval",
+    color: "#00d4aa",
+    icon: "🏆",
+    deliverables: [
+      "Part Submission Warrant (PSW)",
+      "All 18 PPAP Elements",
+      "Customer Dimensional Report",
+      "Material Cert & Performance",
+      "→ Mass Production Release",
+    ],
+  },
+  {
+    phase: "Phase 5",
+    name: "Monitoring & CA",
+    color: "#a855f7",
+    icon: "📊",
+    deliverables: [
+      "SPC Charts per Characteristic",
+      "8D Corrective Action (≤ 30d)",
+      "PPM / Warranty Tracking",
+      "PFMEA → Control Plan Update",
+      "Lessons Learned KB Entry",
+    ],
+  },
+];
+
+const features = [
+  {
+    icon: "🔗",
+    title: "CSR-to-PPAP Traceability",
+    desc: "Every PPAP element linked to its customer requirement — full audit-ready trail from CSR intake to production sign-off.",
+  },
+  {
+    icon: "⚡",
+    title: "PFMEA ↔ Control Plan Sync",
+    desc: "Risk items in PFMEA auto-generate control actions in the Control Plan — no manual re-entry, no version drift.",
+  },
+  {
+    icon: "📊",
+    title: "SPC Dashboard",
+    desc: "Real-time Cpk/Ppk charts per characteristic, colour-coded against acceptance criteria (Cpk ≥ 1.33 / ≥ 1.67 critical).",
+  },
+  {
+    icon: "🔔",
+    title: "APQP Gate Reminders",
+    desc: "Auto-email alerts for APQP milestone deadlines and PPAP submission due dates sent to responsible owners.",
+  },
+  {
+    icon: "🔄",
+    title: "8D ↔ PFMEA Feedback Loop",
+    desc: "Customer complaints trigger 8D workflow and auto-update PFMEA RPN — closing the quality loop systematically.",
+  },
+  {
+    icon: "📋",
+    title: "Audit-Ready Export",
+    desc: "One-click export of the full APQP/PPAP package in IATF 16949 format, ready for customer and third-party audits.",
+  },
 ];
 
 export default function IATFPage() {
@@ -36,11 +140,12 @@ export default function IATFPage() {
               IATF 16949 Closed-Loop System
             </h1>
             <p className="mb-4 text-sm text-[#64748b] leading-relaxed max-w-xl">
-              Automated APQP → PPAP → PFMEA → Control Plan → MSA → SPC pipeline with deadline
-              reminders, traceability, and audit-ready reporting — built on Next.js + Google Workspace.
+              End-to-end APQP → PPAP → SPC pipeline with closed-loop corrective action feedback.
+              Designed to digitize IATF 16949 core tools at XAVi Technologies — from customer
+              requirements to production monitoring, all linked in a single traceable system.
             </p>
             <div className="flex flex-wrap gap-2">
-              {["APQP", "PPAP", "PFMEA", "Control Plan", "MSA", "SPC", "Next.js", "Google Sheets"].map((t) => (
+              {["APQP", "PPAP", "PFMEA", "Control Plan", "MSA / GR&R", "SPC", "8D", "Next.js", "Google Sheets"].map((t) => (
                 <span key={t} className="rounded-lg bg-[#111827] border border-[#1e2d4a] px-3 py-1 text-xs text-[#94a3b8]">
                   {t}
                 </span>
@@ -48,61 +153,90 @@ export default function IATFPage() {
             </div>
           </div>
 
-          {/* In Dev notice */}
-          <div className="rounded-xl border border-[rgba(245,158,11,0.3)] bg-[rgba(245,158,11,0.05)] px-6 py-5 flex items-start gap-4">
-            <div className="text-2xl mt-0.5">⚙️</div>
-            <div>
-              <div className="text-sm font-semibold text-[#f59e0b] mb-1">Currently in active development</div>
-              <div className="text-xs text-[#64748b] leading-relaxed">
-                This system is being built to digitize IATF 16949 core tools at XAVi Technologies.
-                Screenshots and live demo will be available upon production release.
-              </div>
+          <div className="rounded-xl border border-[rgba(245,158,11,0.25)] bg-[rgba(245,158,11,0.04)] px-5 py-4 flex items-center gap-4">
+            <div className="text-xl">⚙️</div>
+            <div className="text-xs text-[#64748b] leading-relaxed">
+              <span className="text-[#f59e0b] font-semibold">Currently in active development</span>
+              {" "}— architecture and workflow designed per IATF 16949:2016 APQP manual.
+              Live demo available upon production release.
             </div>
           </div>
         </div>
       </section>
 
-      {/* PIPELINE */}
+      {/* KPI TARGETS */}
+      <section className="border-t border-[#1e2d4a] py-10" style={{ background: "transparent" }}>
+        <div className="mx-auto max-w-5xl px-8">
+          <div className="mb-3 text-[10px] uppercase tracking-widest text-[#00d4aa]">// Design Targets</div>
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {kpis.map((k) => (
+              <div key={k.label} className="rounded-xl border border-[#1e2d4a] bg-[#0d1520] px-5 py-5 text-center">
+                <div className="text-2xl font-extrabold mb-1" style={{ color: k.color }}>{k.value}</div>
+                <div className="text-[10px] text-[#64748b] leading-snug">{k.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CLOSED-LOOP DIAGRAM */}
       <section className="border-t border-[#1e2d4a] py-16" style={{ background: "transparent" }}>
         <div className="mx-auto max-w-5xl px-8">
           <div className="rounded-xl border border-[#1e2d4a] bg-[#0d1520] px-6 py-6">
-            <div className="mb-1 text-[10px] uppercase tracking-widest text-[#00d4aa]">// IATF 16949 Core Tools Pipeline</div>
-            <h3 className="mb-8 text-xl font-bold text-[#f1f5f9]">APQP → PPAP → PFMEA → Control Plan → MSA → SPC</h3>
-            <div className="grid grid-cols-6 gap-3">
-              {pipeline.map((step, i) => (
-                <div key={i} className="flex flex-col items-center gap-2">
-                  <div className="relative">
-                    <div className="absolute inset-0 rounded-full opacity-20 blur-md"
-                      style={{ background: step.border, transform: "scale(1.5)" }} />
-                    <div className="relative w-14 h-14 rounded-full flex items-center justify-center text-xl border-2"
-                      style={{ background: step.color, borderColor: step.border, boxShadow: `0 0 16px ${step.border}40` }}>
-                      {step.icon}
-                    </div>
-                  </div>
-                  <div className="text-xs font-bold text-center" style={{ color: step.border }}>{step.label}</div>
-                  <div className="text-[10px] text-[#475569] text-center leading-tight">{step.sub}</div>
-                  {i < pipeline.length - 1 && (
-                    <div className="hidden" />
-                  )}
-                </div>
-              ))}
-            </div>
-            <div className="mt-6 flex items-center justify-center gap-2 text-xs text-[#475569]">
-              <div className="h-px w-12 bg-[#1e2d4a]" />
-              Closed-loop traceability across all 6 core tools
-              <div className="h-px w-12 bg-[#1e2d4a]" />
-            </div>
+            <div className="mb-1 text-[10px] uppercase tracking-widest text-[#00d4aa]">// IATF 16949 Closed-Loop Workflow</div>
+            <h3 className="mb-6 text-xl font-bold text-[#f1f5f9]">CSR → APQP → PPAP → Production → Feedback Loop</h3>
+            <IATFClosedLoopGraph />
           </div>
         </div>
       </section>
 
-      {/* PLANNED FEATURES */}
+      {/* APQP PHASE CARDS */}
       <section className="border-t border-[#1e2d4a] py-20" style={{ background: "rgba(6,9,26,0.6)" }}>
         <div className="mx-auto max-w-5xl px-8">
-          <div className="mb-2 text-[10px] uppercase tracking-widest text-[#00d4aa]">// Planned Features</div>
-          <h3 className="mb-10 text-xl font-bold text-[#f1f5f9]">What This System Will Do</h3>
+          <div className="mb-2 text-[10px] uppercase tracking-widest text-[#00d4aa]">// APQP Phases & Deliverables</div>
+          <h3 className="mb-10 text-xl font-bold text-[#f1f5f9]">What Each Gate Produces</h3>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {planned.map((f) => (
+            {apqpPhases.map((p) => (
+              <div
+                key={p.phase}
+                className="rounded-xl bg-[#0d1520] p-5"
+                style={{ border: `1px solid ${p.color}30` }}
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div
+                    className="flex h-9 w-9 items-center justify-center rounded-lg text-lg"
+                    style={{ background: `${p.color}18`, border: `1px solid ${p.color}40` }}
+                  >
+                    {p.icon}
+                  </div>
+                  <div>
+                    <div className="text-[10px] font-bold uppercase tracking-wider" style={{ color: p.color }}>
+                      {p.phase}
+                    </div>
+                    <div className="text-sm font-semibold text-[#f1f5f9]">{p.name}</div>
+                  </div>
+                </div>
+                <ul className="space-y-1.5">
+                  {p.deliverables.map((d) => (
+                    <li key={d} className="flex items-start gap-2 text-xs text-[#64748b]">
+                      <span className="mt-0.5 shrink-0" style={{ color: p.color }}>›</span>
+                      {d}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SYSTEM FEATURES */}
+      <section className="border-t border-[#1e2d4a] py-20" style={{ background: "transparent" }}>
+        <div className="mx-auto max-w-5xl px-8">
+          <div className="mb-2 text-[10px] uppercase tracking-widest text-[#00d4aa]">// System Features</div>
+          <h3 className="mb-10 text-xl font-bold text-[#f1f5f9]">What This System Does</h3>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {features.map((f) => (
               <div key={f.title} className="rounded-xl border border-[#1e2d4a] bg-[#111827] p-6">
                 <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-[#1e2d4a] text-xl">
                   {f.icon}
