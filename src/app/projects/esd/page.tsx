@@ -90,13 +90,13 @@ export default function ESDPage() {
       </section>
 
       {/* KPI WORKFLOW */}
-      <section className="border-t border-[#1e2d4a] py-16" style={{ background: "rgba(6,9,26,0.85)" }}>
+      <section className="border-t border-[#1e2d4a] py-16" style={{ background: "transparent" }}>
         <div className="mx-auto max-w-5xl px-8">
-          <div className="mb-6 rounded-xl border border-[#1e2d4a] bg-[#0d1520] px-6 py-4 inline-block">
+          <div className="rounded-xl border border-[#1e2d4a] bg-[#0d1520] px-6 py-6">
             <div className="mb-1 text-[10px] uppercase tracking-widest text-[#00d4aa]">// KPI System Workflow</div>
-            <h3 className="text-xl font-bold text-[#f1f5f9]">Submit → Approve → Monitor Pipeline</h3>
+            <h3 className="mb-6 text-xl font-bold text-[#f1f5f9]">Submit → Approve → Monitor Pipeline</h3>
+            <KPIWorkflowGraph />
           </div>
-          <KPIWorkflowGraph />
         </div>
       </section>
 

@@ -54,7 +54,7 @@ export default function Home() {
 
       {/* HERO */}
       <section
-        className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 py-24 text-center"
+        className="relative flex flex-col items-center justify-center overflow-hidden px-6 pt-6 pb-10 text-center"
         style={{ background: "transparent" }}
       >
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -82,7 +82,7 @@ export default function Home() {
             Buapha
           </h1>
           <p className="hero-sub mb-3 text-lg text-[#94a3b8]">Quality Management Systems Engineer</p>
-          <p className="hero-desc mb-10 text-sm text-[#94a3b8] leading-relaxed">
+          <p className="hero-desc mb-6 text-sm text-[#94a3b8] leading-relaxed">
             Building intelligent QMS automation — combining IATF 16949 expertise with AI tools and
             full-stack development to digitize quality operations.
           </p>
@@ -90,7 +90,7 @@ export default function Home() {
         </div>
 
         {/* Stats */}
-        <div className="relative z-10 mt-20 flex flex-wrap justify-center gap-4 pt-4">
+        <div className="relative z-10 mt-6 grid grid-cols-4 gap-3 w-full max-w-5xl">
           {/* Years */}
           <div
             className="flex flex-col items-center rounded-xl px-8 py-4 text-center"
