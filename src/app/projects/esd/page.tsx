@@ -1,6 +1,7 @@
 "use client";
 import Navbar from "@/components/Navbar";
 import ScreenshotCarousel from "@/components/ScreenshotCarousel";
+import ESDWorkflowGraph from "@/components/ESDWorkflowGraph";
 
 const esdImages = [
   "/screenshots/esd/1.png",
@@ -66,11 +67,8 @@ export default function ESDPage() {
         <div className="mx-auto max-w-5xl px-8">
           <div className="rounded-xl border border-[#1e2d4a] bg-[#0d1520] px-6 py-6">
             <div className="mb-1 text-[10px] uppercase tracking-widest text-[#00d4aa]">// ESD System Workflow</div>
-            <h3 className="mb-2 text-xl font-bold text-[#f1f5f9]">Inspection → Approval → Record Pipeline</h3>
-            <p className="mb-8 text-xs text-[#475569]">6-step closed-loop — form submission to Google Sheets audit trail</p>
-            <div className="flex justify-center overflow-x-auto pb-4">
-              <WorkflowSteps steps={esdSteps} />
-            </div>
+            <h3 className="mb-6 text-xl font-bold text-[#f1f5f9]">Inspection → Approval → Record Pipeline</h3>
+            <ESDWorkflowGraph />
           </div>
         </div>
       </section>
