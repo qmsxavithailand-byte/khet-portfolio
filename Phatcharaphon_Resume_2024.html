@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phatcharaphon Buapha · QMS Engineer</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #e6e9ef;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      padding: 30px 20px;
+    }
+
+    .resume {
+      width: 210mm;
+      max-width: 100%;
+      background: white;
+      display: flex;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      background: #1B3A4B;
+      color: #f0f4f8;
+      width: 35%;
+      padding: 2rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.3rem;
+    }
+
+    .photo-placeholder {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      margin: 0 auto 0.6rem;
+      border: 3px solid #00BFA6;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+
+    .photo-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+    }
+
+    .sidebar h1 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: white;
+      text-align: center;
+      line-height: 1.25;
+    }
+
+    .nickname {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #00BFA6;
+      margin-top: 0.1rem;
+    }
+
+    .sidebar-section {
+      border-top: 1px solid #2a4d5e;
+      padding-top: 0.85rem;
+    }
+
+    .sidebar-section h3 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      color: #00BFA6;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .sidebar-section p {
+      font-size: 0.72rem;
+      line-height: 1.6;
+      color: #d8eaf2;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .sidebar ul li {
+      font-size: 0.71rem;
+      line-height: 1.5;
+      color: #d8eaf2;
+      padding-left: 1rem;
+      position: relative;
+      margin-bottom: 0.2rem;
+    }
+
+    .sidebar ul li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #00BFA6;
+    }
+
+    .info-row {
+      display: flex;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      margin-bottom: 0.22rem;
+      color: #d8eaf2;
+    }
+
+    .info-row .label {
+      color: #8ab4c8;
+      min-width: 55px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.22rem;
+      margin-top: 0.2rem;
+    }
+
+    .tag {
+      background: #243f52;
+      border: 1px solid #2e5568;
+      padding: 0.12rem 0.5rem;
+      border-radius: 20px;
+      font-size: 0.65rem;
+      color: #c8dce8;
+    }
+
+    /* ── MAIN ── */
+    .main {
+      width: 65%;
+      padding: 1.8rem 1.8rem;
+      background: white;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1B3A4B;
+      border-bottom: 3px solid #00BFA6;
+      padding-bottom: 0.2rem;
+      margin: 1.3rem 0 0.8rem;
+      letter-spacing: -0.2px;
+    }
+
+    .section-title:first-child { margin-top: 0; }
+
+    .job { margin-bottom: 1.2rem; }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    .job-title {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #1B3A4B;
+    }
+
+    .job-date {
+      font-size: 0.68rem;
+      color: #3a6070;
+      background: #eaf4f8;
+      padding: 0.1rem 0.6rem;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .job-company {
+      font-size: 0.77rem;
+      font-weight: 600;
+      color: #00BFA6;
+      margin: 0.12rem 0 0.28rem;
+    }
+
+    .job-duties {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .job-duties li {
+      font-size: 0.71rem;
+      line-height: 1.55;
+      color: #1e2e38;
+      padding-left: 1.1rem;
+      position: relative;
+      margin-bottom: 0.25rem;
+    }
+
+    .job-duties li::before {
+      content: "•";
+      position: absolute;
+      left: 0.15rem;
+      color: #00BFA6;
+      font-weight: 900;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #dce8ee;
+      margin: 0.6rem 0;
+    }
+
+    @media print {
+      body { background: white; padding: 0; }
+      .resume { box-shadow: none; border-radius: 0; width: 100%; }
+      .sidebar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    @media screen and (max-width: 680px) {
+      .resume { flex-direction: column; }
+      .sidebar, .main { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<div class="resume">
+
+  <!-- ══════════ SIDEBAR ══════════ -->
+  <div class="sidebar">
+
+    <div>
+      <div class="photo-placeholder">
+        <img src="khet-portfolio.jpg" alt="Phatcharaphon Buapha">
+      </div>
+      <h1>Phatcharaphon<br>Buapha</h1>
+      <div class="nickname">(Khet)</div>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>About Me</h3>
+      <p>Systematic-thinking QMS Engineer with proven expertise in multi-standard quality management systems (IATF 16949, ISO 9001/14001/45001) and a track record of leading successful certification and surveillance audits. Combines mechanical engineering foundation with AI-powered QMS automation to build logic-driven tracking systems and compliance frameworks. Committed to elevating quality assurance through digital transformation and systematic problem-solving.</p>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Personal Info</h3>
+      <div class="info-row"><span class="label">Age</span> 30</div>
+      <div class="info-row"><span class="label">Height</span> 167 cm</div>
+      <div class="info-row"><span class="label">Weight</span> 76 kg</div>
+      <div class="info-row"><span class="label">Nationality</span> Thai</div>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Certificates &amp; Knowledge</h3>
+      <ul>
+        <li>ISO 9001:2015 Quality Management System</li>
+        <li>ISO 14001:2015 Environmental Management</li>
+        <li>ISO 45001:2018 OH&amp;S Management</li>
+        <li>IATF 16949:2016 Automotive QMS</li>
+        <li>Risk &amp; Opportunity — ISO 9001:2015</li>
+        <li>Life Cycle Assessment (LCA) — ISO 14001</li>
+        <li>Internal Quality Audit</li>
+        <li>Management Review / Document Control</li>
+        <li>PDCA / FMEA / APQP</li>
+        <li>4M+1E Analysis / DMAIC</li>
+      </ul>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Education</h3>
+      <p style="margin-bottom:0.5rem;">
+        <strong style="color:#fff;">B.Eng. Mechanical Engineering</strong><br>
+        Major: Aeronautical Engineering<br>
+        Suranaree University of Technology<br>
+        Nakhon Ratchasima, Thailand<br>
+        GPAX: 2.79 &nbsp;|&nbsp; 2015 – 2019
+      </p>
+      <p>
+        <strong style="color:#fff;">High School — Science &amp; Mathematics</strong><br>
+        Udonpattanakarn High School<br>
+        Banjan, Mueang, Udon Thani<br>
+        GPAX: 3.21 &nbsp;|&nbsp; 2013 – 2015
+      </p>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Hard Skills</h3>
+      <div class="skill-tags">
+        <span class="tag">Microsoft Office</span>
+        <span class="tag">AutoCAD</span>
+        <span class="tag">SOLIDWORKS</span>
+        <span class="tag">3D Max</span>
+        <span class="tag">Canva</span>
+        <span class="tag">ZAP (Quality System)</span>
+        <span class="tag">PLM</span>
+        <span class="tag">AI Tools / Claude</span>
+        <span class="tag">QMS Automation</span>
+        <span class="tag">System Development</span>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Soft Skills</h3>
+      <div class="skill-tags">
+        <span class="tag">Leadership</span>
+        <span class="tag">Analytical Thinking</span>
+        <span class="tag">Problem Solving</span>
+        <span class="tag">Flexibility &amp; Adaptability</span>
+        <span class="tag">Communication Skills</span>
+        <span class="tag">Teamwork</span>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Language</h3>
+      <p>🇹🇭 Thai &nbsp;—&nbsp; Native<br>🇬🇧 English &nbsp;—&nbsp; TOEIC 470</p>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Contact</h3>
+      <div class="info-row"><span class="label">Phone</span> 08-6224-1246</div>
+      <div class="info-row"><span class="label">Email</span> phatcharaphon2201@gmail.com</div>
+      <div class="info-row"><span class="label">Address</span> 32 Moo 8, Bang Nang, Phan Thong, Chonburi 20160</div>
+    </div>
+
+  </div>
+
+  <!-- ══════════ MAIN CONTENT ══════════ -->
+  <div class="main">
+
+    <div class="section-title">Work Experience</div>
+
+    <!-- 1. XAVi -->
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">QMS Engineer</span>
+        <span class="job-date">July 2024 – Present</span>
+      </div>
+      <div class="job-company">XAVi TECHNOLOGIES (THAILAND) CO., LTD.</div>
+      <ul class="job-duties">
+        <li>Manage multi-standard QMS across IATF 16949, ISO 9001, ISO 14001, and ISO 45001, ensuring full compliance and continuous improvement</li>
+        <li>Successfully led and passed <strong>IATF 16949 Surveillance 1st</strong>, ISO 9001/14001/45001 Re-certification &amp; Surveillance 1st, <strong>UL, ETL, MET</strong>, and Customer audits without major non-conformances</li>
+        <li>Maintain and control quality documentation: Quality manual, procedures, work instructions in compliance with IATF 16949, ISO 9001, ISO 14001, and ISO 45001</li>
+        <li>Utilize <strong>ZAP</strong> quality system software and <strong>PLM</strong> tools for document lifecycle management, change control, and quality record traceability</li>
+        <li>Developed <strong>ESD Control System</strong> (digital IPQA reporting, record tracking) and <strong>KPI Dashboard</strong> for real-time quality performance monitoring; planning further QMS automation modules to fully digitize quality operations</li>
+        <li>Designing <strong>closed-loop IATF 16949 management system</strong> covering APQP, PPAP, PFMEA, Control Plan, MSA, and SPC workflows — with automated status tracking, deadline reminders, and audit-ready reporting pipeline</li>
+        <li>Drive QMS digital transformation by building automated reporting systems and reducing manual administrative workload</li>
+        <li>Built strong theoretical foundation in PPAP/APQP; actively developing IATF 16949 Knowledge Base to support practical core tools implementation</li>
+        <li>Participated in cross-functional team (CFT) meetings as QA representative — root cause analysis and corrective action planning for daily quality issues</li>
+      </ul>
+    </div>
+
+    <hr class="divider">
+
+    <!-- 2. ISM Warehouse -->
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Quality Management Representative / Document Control (QMR/DCC)</span>
+        <span class="job-date">Oct 2021 – July 2024</span>
+      </div>
+      <div class="job-company">ISM WAREHOUSE AND LOGISTICS CO., LTD.</div>
+      <ul class="job-duties">
+        <li>Coordinated with consultants to establish document and quality systems; set up objectives, KPIs, targets, and quality policy</li>
+        <li>Established Quality Manual, procedures, forms, work instructions, and support documents</li>
+        <li>Maintained Document Master List; managed document storage and controlled destruction after retention period</li>
+        <li>Scheduled and led Internal Quality Audits; followed up CAR/PAR closure</li>
+        <li>Conducted Management Review 2 times/year; reported quality trends and recommendations to management</li>
+        <li>Coordinated with Certification Bodies for Surveillance and Recertification audits (ISO 9001/14001/45001)</li>
+        <li>Resolved CAR/PAR, NCRs, and Customer Complaints — root cause analysis and systematic prevention</li>
+        <li>Managed calibration of measuring equipment; submitted Dangerous Chemicals reports per DPW e-Service; coordinated Building Inspection compliance</li>
+        <li>Developed and maintained ISO 9001:2015, ISO 14001:2015, and ISO 45001:2018 systems</li>
+      </ul>
+    </div>
+
+    <hr class="divider">
+
+    <!-- 3. Apex Circuit -->
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">R&amp;D Engineer — Dryfilm (Inner/Outer), Exposure, D.E.S.</span>
+        <span class="job-date">Mar 2021 – Oct 2021</span>
+      </div>
+      <div class="job-company">Apex Circuit (Thailand) Co., Ltd.</div>
+      <ul class="job-duties">
+        <li>Checked and approved machines against specifications; led machine installation</li>
+        <li>Defined Work Instructions for machine operation; tested and recorded process parameters</li>
+        <li>Set default parameters and communicated to Production Engineers</li>
+        <li>Developed tools and equipment to support production line efficiency</li>
+      </ul>
+    </div>
+
+    <hr class="divider">
+
+    <!-- 4. PM Valve -->
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Maintenance Officer</span>
+        <span class="job-date">Oct 2020 – Jan 2021</span>
+      </div>
+      <div class="job-company">P.M. Valve &amp; Sealing Services Co., Ltd.</div>
+      <ul class="job-duties">
+        <li>Managed documents and supported maintenance service team operations</li>
+        <li>Supported spare part purchasing and maintenance scheduling</li>
+      </ul>
+    </div>
+
+    <hr class="divider">
+
+    <!-- 5. NokScoot -->
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Specialist, Materials &amp; Purchasing</span>
+        <span class="job-date">May 2019 – June 2020</span>
+      </div>
+      <div class="job-company">NokScoot Airlines</div>
+      <ul class="job-duties">
+        <li>Point of contact for spare parts issuance; ensured accuracy of stock levels</li>
+        <li>Liaised with inventory service provider for delivery and retrieval of spare parts</li>
+        <li>Coordinated with freight forwarders for spare parts handling (inbound/outbound)</li>
+        <li>Daily visits to repair shop to send unserviceable spares for repair and retrieve serviceable spares</li>
+        <li>Supported spare parts purchasing and monitored inbound/outbound shipments</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
