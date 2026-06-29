@@ -221,9 +221,16 @@
       margin: 0.6rem 0;
     }
 
+    @page { margin: 0; }
+
     @media print {
-      body { background: white; padding: 0; }
-      .resume { box-shadow: none; border-radius: 0; width: 100%; }
+      body {
+        background: #e6e9ef;
+        padding: 10mm 8mm;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .resume { box-shadow: none; border-radius: 8px; width: 100%; }
       .sidebar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     }
 
@@ -323,7 +330,7 @@
 
     <div class="sidebar-section">
       <h3>Language</h3>
-      <p>🇹🇭 Thai &nbsp;—&nbsp; Native<br>🇬🇧 English &nbsp;—&nbsp; TOEIC 470</p>
+      <p>🇹🇭 Thai &nbsp;—&nbsp; Native<br>🇬🇧 English &nbsp;—&nbsp; Intermediate / Working Knowledge</p>
     </div>
 
     <div class="sidebar-section">

@@ -47,7 +47,6 @@ const certs = [
   { label: "ISO 9001:2015 — Quality Management System", file: "/CERTIFICATE/ISO9001.pdf", icon: "📋" },
   { label: "ISO 14001 & 45001 — Environmental & OH&S", file: "/CERTIFICATE/Cer. ISO14001 and 45001.pdf", icon: "🌿" },
   { label: "APQP / PPAP / FMEA — Core Tools", file: "/CERTIFICATE/FMEA APQP PPAP.pdf", icon: "⚙️" },
-  { label: "TOEIC Score Certificate", file: "/CERTIFICATE/TOEIC score.pdf", icon: "🌐" },
   { label: "Safety Officer Certificate (จป.วิชาชีพ)", file: "/CERTIFICATE/จป.pdf", icon: "🦺" },
 ];
 
@@ -116,7 +115,7 @@ export default function Home() {
             style={{ background: "rgba(6,9,26,0.65)", backdropFilter: "blur(8px)", border: "1px solid rgba(0,212,170,0.15)" }}
           >
             <div className="text-center mb-3">
-              <div className="text-3xl font-extrabold text-[#00d4aa]" style={{ textShadow: "0 0 20px rgba(0,212,170,0.5)" }}>5+</div>
+              <div className="text-3xl font-extrabold text-[#00d4aa]" style={{ textShadow: "0 0 20px rgba(0,212,170,0.5)" }}>5</div>
               <div className="mt-1 text-xs text-[#94a3b8]">Years QMS Experience</div>
             </div>
             <div className="flex flex-wrap gap-1.5 justify-center border-t border-[#1e2d4a] pt-3">
