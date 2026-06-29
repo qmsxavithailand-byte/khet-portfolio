@@ -95,20 +95,6 @@ export default function Home() {
             full-stack development to digitize quality operations.
           </p>
 
-          <div className="flex items-center justify-center gap-3">
-            <a
-              href="#projects"
-              className="rounded-lg bg-[#00d4aa] px-5 py-2.5 text-sm font-bold text-[#0a0f1e] hover:bg-[#00bfa6] transition-colors"
-            >
-              View Projects ↓
-            </a>
-            <a
-              href="#about"
-              className="rounded-lg border border-[#1e2d4a] px-5 py-2.5 text-sm font-semibold text-[#94a3b8] hover:border-[#00d4aa] hover:text-[#00d4aa] transition-colors"
-            >
-              Certificates
-            </a>
-          </div>
 
         </div>
 
