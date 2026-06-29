@@ -47,6 +47,11 @@ const certs = [
   { label: "ISO 9001:2015 — Quality Management System", file: "/CERTIFICATE/ISO9001.pdf", icon: "📋" },
   { label: "ISO 14001 & 45001 — Environmental & OH&S", file: "/CERTIFICATE/Cer. ISO14001 and 45001.pdf", icon: "🌿" },
   { label: "APQP / PPAP / FMEA — Core Tools", file: "/CERTIFICATE/FMEA APQP PPAP.pdf", icon: "⚙️" },
+  { label: "Internal Audit Training — IATF 16949", file: "/CERTIFICATE/Training - Internal audit IATF.pdf", icon: "🔍" },
+  { label: "Internal Audit — ISO 9001 / 14001 / 45001", file: "/CERTIFICATE/Internal audit 9001 14001 45001.pdf", icon: "🔍" },
+  { label: "Requirements — ISO 9001 / 14001 / 45001", file: "/CERTIFICATE/Requirement 9001 14001 45001.pdf", icon: "📘" },
+  { label: "PFMEA — AIAG & VDA 1st Edition", file: "/CERTIFICATE/PFMEA AIAG & VDA 1st.pdf", icon: "⚙️" },
+  { label: "Control Plan — 1st Edition", file: "/CERTIFICATE/Control Plan 1st Edition.pdf", icon: "📋" },
   { label: "Safety Officer Certificate (จป.วิชาชีพ)", file: "/CERTIFICATE/จป.pdf", icon: "🦺" },
 ];
 
